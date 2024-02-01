@@ -28,50 +28,63 @@ struct ContentView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(spacing: 16.0) {
-                    TextField("New Tast", text: $task)
-                        .padding()
-                        .background(
-                            Color(UIColor.systemGray6)
-                        )
-                        .cornerRadius(10)
+            ZStack {
+                VStack {
+                    VStack(spacing: 16.0) {
+                        TextField("New Tast", text: $task)
+                            .padding()
+                            .background(
+                                Color(UIColor.systemGray6)
+                            )
+                            .cornerRadius(10)
 
-                    Button {
-                        addItem()
-                    } label: {
-                        Spacer()
-                        Text("Save".uppercased())
+                        Button {
+                            addItem()
+                        } label: {
+                            Spacer()
+                            Text("Save".uppercased())
+                            Spacer()
+                        }
+                        .padding()
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .background(isButtonDisabled ? .gray.opacity(0.8) : .pink)
+                        .cornerRadius(10)
+                        .disabled(isButtonDisabled)
+                    } //: VStack
+                    .padding()
+
+                    if !items.isEmpty {
+                        List {
+                            ForEach(items) { item in
+                                if let task = item.task {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        Text(task)
+                                            .font(.headline)
+                                            .fontWeight(.bold)
+
+                                        if let timestamp = item.timestamp {
+                                            Text("At \(timestamp, formatter: itemFormatter)")
+                                                .font(.footnote)
+                                                .foregroundColor(.gray)
+                                        }
+                                    } //: VStack
+                                }
+                            } //: ForEach
+                            .onDelete(perform: deleteItems)
+                        } //: List
+                        .scrollContentBackground(.hidden)
+                        .shadow(color: .black.opacity(0.3),
+                                radius: 12)
+                        .padding(.vertical, 0)
+                        .frame(maxWidth: 640)
+                        .background(Color.clear)
+                    } else {
+                        // FIXME: Workaround background
                         Spacer()
                     }
-                    .padding()
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .background(isButtonDisabled ? .gray.opacity(0.8) : .pink)
-                    .cornerRadius(10)
-                    .disabled(isButtonDisabled)
                 } //: VStack
-                .padding()
-
-                List {
-                    ForEach(items) { item in
-                        if let task = item.task {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(task)
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-
-                                if let timestamp = item.timestamp {
-                                    Text("At \(timestamp, formatter: itemFormatter)")
-                                        .font(.footnote)
-                                        .foregroundColor(.gray)
-                                }
-                            } //: VStack
-                        }
-                    } //: ForEach
-                    .onDelete(perform: deleteItems)
-                } //: List
-            } //: VStack
+            } //: ZStack
             .navigationBarTitle("Daily Task",
                                 displayMode: .large)
             .toolbar {
@@ -79,7 +92,14 @@ struct ContentView: View {
                     EditButton()
                 }
             } //: Toolbar
+            .background(
+                BackgroundImageView()
+            )
+            .background(
+                backgroundGradient.ignoresSafeArea()
+            )
         } //: Navigation
+        .navigationViewStyle(.stack)
     }
 
     // MARK: - Functions

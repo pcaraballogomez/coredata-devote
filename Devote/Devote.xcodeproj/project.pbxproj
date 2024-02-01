@@ -18,6 +18,7 @@
 		F2C1F42D2B6A3459003EE259 /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C1F42A2B6A3459003EE259 /* sound-ding.mp3 */; };
 		F2C1F43A2B6B749B003EE259 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4392B6B749B003EE259 /* Constant.swift */; };
 		F2C1F43C2B6BA934003EE259 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F43B2B6BA934003EE259 /* HideKeyboardExtension.swift */; };
+		F2C1F4402B6BB7B8003EE259 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F43F2B6BB7B8003EE259 /* BackgroundImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F2C1F4342B6A34F3003EE259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F2C1F4392B6B749B003EE259 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F2C1F43B2B6BA934003EE259 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
+		F2C1F43F2B6BB7B8003EE259 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F2C1F4172B6A33CB003EE259 /* ContentView.swift */,
+				F2C1F43F2B6BB7B8003EE259 /* BackgroundImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2C1F43A2B6B749B003EE259 /* Constant.swift in Sources */,
+				F2C1F4402B6BB7B8003EE259 /* BackgroundImageView.swift in Sources */,
 				F2C1F41F2B6A33CD003EE259 /* Persistence.swift in Sources */,
 				F2C1F43C2B6BA934003EE259 /* HideKeyboardExtension.swift in Sources */,
 				F2C1F4182B6A33CB003EE259 /* ContentView.swift in Sources */,
