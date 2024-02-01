@@ -13,6 +13,7 @@ struct NewTaskItemView: View {
     @State var task: String = ""
     @Binding var isShowing: Bool
     @AppStorage("isDarkMode") private var isDarkMode = true
+    @FocusState private var isTextFieldFocused: Bool
 
     private var isButtonDisabled: Bool {
         task.isEmpty
@@ -35,6 +36,7 @@ struct NewTaskItemView: View {
                         Color(isDarkMode ? .tertiarySystemBackground : .secondarySystemBackground)
                     )
                     .cornerRadius(10)
+                    .focused($isTextFieldFocused)
 
                 Button {
                     addItem()
@@ -61,6 +63,9 @@ struct NewTaskItemView: View {
             .frame(maxWidth: 640)
         } //: VStack
         .padding()
+        .onAppear {
+            isTextFieldFocused = true
+        }
     }
 
     // MARK: - Functions

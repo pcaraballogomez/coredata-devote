@@ -23,6 +23,7 @@
 		F2C1F4442B6BBC47003EE259 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4432B6BBC47003EE259 /* BlankView.swift */; };
 		F2C1F4462B6BC3FC003EE259 /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4452B6BC3FC003EE259 /* ListRowItemView.swift */; };
 		F2C1F4482B6BF43D003EE259 /* CheckBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4472B6BF43D003EE259 /* CheckBoxStyle.swift */; };
+		F2C1F44A2B6BF91C003EE259 /* NavButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4492B6BF91C003EE259 /* NavButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F2C1F4432B6BBC47003EE259 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		F2C1F4452B6BC3FC003EE259 /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 		F2C1F4472B6BF43D003EE259 /* CheckBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxStyle.swift; sourceTree = "<group>"; };
+		F2C1F4492B6BF91C003EE259 /* NavButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				F2C1F4472B6BF43D003EE259 /* CheckBoxStyle.swift */,
+				F2C1F4492B6BF91C003EE259 /* NavButtonStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				F2C1F4462B6BC3FC003EE259 /* ListRowItemView.swift in Sources */,
 				F2C1F4222B6A33CD003EE259 /* Devote.xcdatamodeld in Sources */,
 				F2C1F4482B6BF43D003EE259 /* CheckBoxStyle.swift in Sources */,
+				F2C1F44A2B6BF91C003EE259 /* NavButtonStyle.swift in Sources */,
 				F2C1F4162B6A33CB003EE259 /* DevoteApp.swift in Sources */,
 				F2C1F4422B6BB888003EE259 /* NewTaskItemView.swift in Sources */,
 			);

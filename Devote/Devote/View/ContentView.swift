@@ -38,15 +38,19 @@ struct ContentView: View {
 
                         Spacer()
 
+                        if !items.isEmpty {
+                            Button {
+                                clearItems()
+                            } label: {
+                                Text("Clear")
+                            }
+                            .buttonStyle(NavButtonStyle())
+                        }
+
+
                         // Edit button
                         EditButton()
-                            .font(.system(size: 16, weight: .semibold, design: .rounded))
-                            .padding(.horizontal, 10)
-                            .frame(minWidth: 70, minHeight: 24)
-                            .background(
-                                Capsule()
-                                    .stroke(Color.white, lineWidth: 2)
-                            )
+                            .buttonStyle(NavButtonStyle())
 
                         // Appearance button
                         Button {
@@ -140,6 +144,11 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+
+    private func clearItems() {
+        let offsets = IndexSet(integersIn: items.indices)
+        deleteItems(offsets: offsets)
     }
 }
 
