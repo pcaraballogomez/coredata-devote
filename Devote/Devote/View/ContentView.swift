@@ -11,11 +11,7 @@ import CoreData
 struct ContentView: View {
 
     // MARK: - Properties
-    @State var task: String = ""
-
-    private var isButtonDisabled: Bool {
-        task.isEmpty
-    }
+    @State private var showNewTaskItem = false
 
     // MARK: - Fetching data
     @Environment(\.managedObjectContext) private var viewContext
@@ -29,32 +25,36 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                // MARK: - Main View
                 VStack {
-                    VStack(spacing: 16.0) {
-                        TextField("New Tast", text: $task)
-                            .padding()
-                            .background(
-                                Color(UIColor.systemGray6)
-                            )
-                            .cornerRadius(10)
+                    // MARK: - Header
+                    Spacer(minLength: 80)
 
-                        Button {
-                            addItem()
-                        } label: {
-                            Spacer()
-                            Text("Save".uppercased())
-                            Spacer()
-                        }
-                        .padding()
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .background(isButtonDisabled ? .gray.opacity(0.8) : .pink)
-                        .cornerRadius(10)
-                        .disabled(isButtonDisabled)
-                    } //: VStack
-                    .padding()
+                    // MARK: - New task button
+                    Button {
+                        showNewTaskItem = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                    }
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+                    .background(
+                        backgroundGradient
+                            .clipShape(Capsule())
+                    )
+                    .shadow(color: .black.opacity(0.25),
+                            radius: 8,
+                            x: .zero,
+                            y: 4.0)
 
-                    if !items.isEmpty {
+                    // MARK: - Tasks
+                    if items.isEmpty {
+                        Spacer() // FIXME: Workaround background
+                    } else {
                         List {
                             ForEach(items) { item in
                                 if let task = item.task {
@@ -79,11 +79,20 @@ struct ContentView: View {
                         .padding(.vertical, 0)
                         .frame(maxWidth: 640)
                         .background(Color.clear)
-                    } else {
-                        // FIXME: Workaround background
-                        Spacer()
                     }
                 } //: VStack
+
+                // MARK: - New task item
+
+                if showNewTaskItem {
+                    BlankView()
+                        .onTapGesture {
+                            withAnimation {
+                                showNewTaskItem = false
+                            }
+                        }
+                    NewTaskItemView(isShowing: $showNewTaskItem)
+                }
             } //: ZStack
             .navigationBarTitle("Daily Task",
                                 displayMode: .large)
@@ -103,28 +112,6 @@ struct ContentView: View {
     }
 
     // MARK: - Functions
-
-    private func addItem() {
-        defer {
-            task = ""
-            hideKeyboard()
-        }
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.task = task
-            newItem.completion = false
-            newItem.id = UUID()
-
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
