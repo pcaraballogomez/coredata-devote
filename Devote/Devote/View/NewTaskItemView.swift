@@ -12,6 +12,7 @@ struct NewTaskItemView: View {
     // MARK: - Properties
     @State var task: String = ""
     @Binding var isShowing: Bool
+    @AppStorage("isDarkMode") private var isDarkMode = true
 
     private var isButtonDisabled: Bool {
         task.isEmpty
@@ -31,7 +32,7 @@ struct NewTaskItemView: View {
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                     .padding()
                     .background(
-                        Color(UIColor.systemGray6)
+                        Color(isDarkMode ? .tertiarySystemBackground : .secondarySystemBackground)
                     )
                     .cornerRadius(10)
 
@@ -51,7 +52,9 @@ struct NewTaskItemView: View {
             } //: VStack
             .padding(.horizontal)
             .padding(.vertical, 20)
-            .background(.white)
+            .background(
+                Color(isDarkMode ? .secondarySystemBackground : .white)
+            )
             .cornerRadius(16)
             .shadow(color: .black.opacity(0.65),
                     radius: 24)
