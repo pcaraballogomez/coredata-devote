@@ -92,19 +92,7 @@ struct ContentView: View {
                     } else {
                         List {
                             ForEach(items) { item in
-                                if let task = item.task {
-                                    VStack(alignment: .leading, spacing: 6) {
-                                        Text(task)
-                                            .font(.headline)
-                                            .fontWeight(.bold)
-
-                                        if let timestamp = item.timestamp {
-                                            Text("At \(timestamp, formatter: itemFormatter)")
-                                                .font(.footnote)
-                                                .foregroundColor(.gray)
-                                        }
-                                    } //: VStack
-                                }
+                                ListRowItemView(item: item)
                             } //: ForEach
                             .onDelete(perform: deleteItems)
                         } //: List
