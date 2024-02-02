@@ -40,6 +40,7 @@ struct NewTaskItemView: View {
 
                 Button {
                     addItem()
+                    playMp3Sound(.ding)
                 } label: {
                     Spacer()
                     Text("Save".uppercased())
@@ -51,6 +52,10 @@ struct NewTaskItemView: View {
                 .background(isButtonDisabled ? .blue.opacity(0.5) : .pink)
                 .cornerRadius(10)
                 .disabled(isButtonDisabled)
+                .onTapGesture {
+                    guard isButtonDisabled else { return }
+                    playMp3Sound(.tap)
+                }
             } //: VStack
             .padding(.horizontal)
             .padding(.vertical, 20)

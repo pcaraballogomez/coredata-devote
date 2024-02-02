@@ -24,6 +24,7 @@
 		F2C1F4462B6BC3FC003EE259 /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4452B6BC3FC003EE259 /* ListRowItemView.swift */; };
 		F2C1F4482B6BF43D003EE259 /* CheckBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4472B6BF43D003EE259 /* CheckBoxStyle.swift */; };
 		F2C1F44A2B6BF91C003EE259 /* NavButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F4492B6BF91C003EE259 /* NavButtonStyle.swift */; };
+		F2C1F44C2B6CC22D003EE259 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1F44B2B6CC22D003EE259 /* SoundPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F2C1F4452B6BC3FC003EE259 /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 		F2C1F4472B6BF43D003EE259 /* CheckBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxStyle.swift; sourceTree = "<group>"; };
 		F2C1F4492B6BF91C003EE259 /* NavButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonStyle.swift; sourceTree = "<group>"; };
+		F2C1F44B2B6CC22D003EE259 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				F2C1F4392B6B749B003EE259 /* Constant.swift */,
+				F2C1F44B2B6CC22D003EE259 /* SoundPlayer.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C1F44C2B6CC22D003EE259 /* SoundPlayer.swift in Sources */,
 				F2C1F43A2B6B749B003EE259 /* Constant.swift in Sources */,
 				F2C1F4402B6BB7B8003EE259 /* BackgroundImageView.swift in Sources */,
 				F2C1F41F2B6A33CD003EE259 /* Persistence.swift in Sources */,
