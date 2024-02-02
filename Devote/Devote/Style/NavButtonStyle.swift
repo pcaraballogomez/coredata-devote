@@ -11,6 +11,7 @@ struct NavButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 16, weight: .semibold, design: .rounded))
+            .foregroundColor(.white)
             .padding(.horizontal, 10)
             .frame(minWidth: 70, minHeight: 24)
             .background(.clear)
