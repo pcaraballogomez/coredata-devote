@@ -51,6 +51,8 @@ struct ContentView: View {
                         // Edit button
                         EditButton()
                             .buttonStyle(NavButtonStyle())
+                            .disabled(items.isEmpty)
+                            .opacity(items.isEmpty ? 0.5 : 1.0)
 
                         // Appearance button
                         Button {
